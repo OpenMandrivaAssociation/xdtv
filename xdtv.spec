@@ -1,7 +1,7 @@
 %define	name	xdtv
 %define Name	XdTV
 %define	version	2.4.0
-%define release 3
+%define rel	4
 %define summary TV application with plugin capabilities
 
 %define build_plf 0
@@ -26,7 +26,7 @@
 
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel %{release}
+Release:	%mkrel %{rel}
 Summary:	%{summary}
 URL:		http://xawdecode.sourceforge.net/
 Source0:	%{name}-%{version}.tar.bz2
