@@ -1,8 +1,8 @@
 %define	name	xdtv
 %define Name	XdTV
 %define	version	2.4.0
-%define rel	4
-%define summary TV application with plugin capabilities
+%define rel		5
+%define summary	TV application with plugin capabilities
 
 %define build_plf 0
 %{?_with_plf: %{expand: %%global build_plf 1}}
@@ -129,21 +129,13 @@ rm -fr %{buildroot}
 rm -f %{buildroot}%{_datadir}/%{name}/icons/*.png
 
 # icons
-install -D -m 644 %{name}-16.png %{buildroot}%{_miconsdir}/%{name}.png
-install -D -m 644 %{name}-32.png %{buildroot}%{_iconsdir}/%{name}.png
-install -D -m 644 %{name}-48.png %{buildroot}%{_liconsdir}/%{name}.png
-# menu entry
-install -d -m 755 %{buildroot}%{_menudir}
-cat >%{buildroot}%{_menudir}/%{name} <<EOF
-?package(%{name}): \
-	command="%{_bindir}/%{name}" \
-	needs="X11" \
-	icon="%{name}.png" \
-	section="Multimedia/Video" \
-	title="%{Name}" \
-	longtitle="%{summary}" \
-	xdg="true"
-EOF
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps
+install -m 644 %{name}-16.png \
+	%{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+install -m 644 %{name}-32.png \
+	%{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+install -m 644 %{name}-48.png \
+	%{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
@@ -155,10 +147,12 @@ desktop-file-install --vendor="" \
 rm -fr %{buildroot}
 
 %post
-%{update_menus}
+%update_menus
+%update_icon_cache hicolor
 
 %postun
-%{clean_menus}
+%clean_menus
+%update_icon_cache hicolor
 
 %files
 %defattr(-,root,root)
@@ -168,16 +162,12 @@ rm -fr %{buildroot}
 %config(noreplace) %{_sysconfdir}/%{name}/xdtv_wizard-en*.conf
 %{_bindir}/*
 %{_datadir}/%{name}
+%{_iconsdir}/hicolor/*/apps/%{name}.png
 %{_mandir}/man1/*
 %{_datadir}/applications/%{name}.desktop
-%{_menudir}/%{name}
-%{_iconsdir}/%{name}.png
-%{_miconsdir}/%{name}.png
-%{_liconsdir}/%{name}.png
 
 %files devel
 %defattr(-,root,root)
 %doc COPYING README.*
 %{_includedir}/*
-
 
