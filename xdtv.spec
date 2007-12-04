@@ -55,7 +55,7 @@ BuildRequires:	libxxf86vm-devel
 BuildRequires:	libxext-devel
 BuildRequires:	libxinerama-devel
 %else
-BuildRequires:	XFree86-devel 
+BuildRequires:	X11-devel 
 BuildRequires:	XFree86
 %endif
 %if %build_plf
