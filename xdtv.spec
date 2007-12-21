@@ -32,6 +32,7 @@ URL:		http://xawdecode.sourceforge.net/
 Source0:	%{name}-%{version}.tar.bz2
 Group:		Video
 License:	GPL
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:  gpm-devel
 BuildRequires:  libjpeg-devel
 BuildRequires:  libxpm-devel
