@@ -1,7 +1,7 @@
 %define	name	xdtv
 %define Name	XdTV
 %define	version	2.4.0
-%define rel		5
+%define rel		6
 %define summary	TV application with plugin capabilities
 
 %define build_plf 0
