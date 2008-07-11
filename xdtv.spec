@@ -1,7 +1,7 @@
 %define	name	xdtv
 %define Name	XdTV
 %define	version	2.4.0
-%define rel		6
+%define rel		7
 %define summary	TV application with plugin capabilities
 
 %define build_plf 0
@@ -30,6 +30,7 @@ Release:	%mkrel %{rel}
 Summary:	%{summary}
 URL:		http://xawdecode.sourceforge.net/
 Source0:	%{name}-%{version}.tar.bz2
+Patch0:		xdtv-2.4.0-norms.patch
 Group:		Video
 License:	GPL
 BuildRoot:	%{_tmppath}/%{name}-buildroot
@@ -101,6 +102,7 @@ and link programs which use %{name}.
 
 %prep
 %setup -q
+%patch0 -p1 -b .norms
 
 %build
 %configure \
