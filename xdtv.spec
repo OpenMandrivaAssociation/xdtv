@@ -56,6 +56,7 @@ BuildRequires:	libxv-devel
 BuildRequires:	libxxf86dga-devel
 BuildRequires:	libxxf86vm-devel
 BuildRequires:	libxext-devel
+BuildRequires:	libxaw-devel
 BuildRequires:	libxinerama-devel
 %else
 BuildRequires:	X11-devel 
