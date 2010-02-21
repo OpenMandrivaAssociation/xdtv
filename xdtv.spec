@@ -4,6 +4,8 @@
 %define rel		8
 %define summary	TV application with plugin capabilities
 
+%define Werror_cflags %{nil}
+
 %define build_plf 0
 %{?_with_plf: %{expand: %%global build_plf 1}}
 %if %build_plf
@@ -105,7 +107,7 @@ and link programs which use %{name}.
 %patch0 -p1 -b .norms
 
 %build
-%configure \
+%configure2_5x \
 	--enable-xosd \
 	--disable-makefonts \
 	--with-appdefaultsdir=%{app_defaults_dir} \
