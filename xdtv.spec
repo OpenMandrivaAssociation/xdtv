@@ -1,7 +1,7 @@
 %define	name	xdtv
 %define Name	XdTV
 %define	version	2.4.0
-%define rel		8
+%define rel		9
 %define summary	TV application with plugin capabilities
 
 %define Werror_cflags %{nil}
