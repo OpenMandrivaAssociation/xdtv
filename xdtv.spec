@@ -10,6 +10,10 @@
 %{?_with_plf: %{expand: %%global build_plf 1}}
 %if %build_plf
 %define distsuffix plf
+%if %mdvver >= 201100
+# make EVR of plf build higher than regular to allow update, needed with rpm5 mkrel
+%define extrarelsuffix plf
+%endif
 %endif
 
 # build with -with optimization
@@ -28,7 +32,7 @@
 
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel %{rel}
+Release:	%mkrel %{rel}%{?extrarelsuffix}
 Summary:	%{summary}
 URL:		http://xawdecode.sourceforge.net/
 Source0:	%{name}-%{version}.tar.bz2
