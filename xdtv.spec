@@ -34,7 +34,7 @@ Name:		%{name}
 Version:	%{version}
 Release:	%mkrel %{rel}%{?extrarelsuffix}
 Summary:	%{summary}
-URL:		http://xawdecode.sourceforge.net/
+URL:		https://xawdecode.sourceforge.net/
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		xdtv-2.4.0-norms.patch
 Group:		Video
